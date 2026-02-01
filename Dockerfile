@@ -5,8 +5,7 @@ WORKDIR /app
 
 # System deps for yt-dlp/ffmpeg
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends ffmpeg python3 python3-pip ca-certificates \
-  && pip3 install --no-cache-dir -U yt-dlp \
+  && apt-get install -y --no-install-recommends ffmpeg yt-dlp ca-certificates \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
