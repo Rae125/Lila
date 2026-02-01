@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lilaloader</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark"></div>
+      </div>
+      <nav class="nav">
+        <div class="nav-group">
+          <button class="nav-item is-active" data-view="downloader">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3v10.2l3.4-3.4 1.4 1.4-5.8 5.8-5.8-5.8 1.4-1.4 3.4 3.4V3h2zm-6 16h12v2H6z"/></svg>
+            </span>
+            <span class="nav-label">Save</span>
+          </button>
+        </div>
+        <div class="nav-group">
+          <button class="nav-item nav-item-plain" data-view="news">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5h16v3H4zM4 10h10v3H4zM4 15h16v3H4z"/></svg>
+            </span>
+            <span class="nav-label">News</span>
+          </button>
+          <button class="nav-item nav-item-plain" data-view="donate">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-6.2-4.6-8.6-7.4C1.3 11.1 2 7.7 5.2 6.6c2.1-.7 4 .4 4.8 1.9.8-1.5 2.7-2.6 4.8-1.9 3.2 1.1 3.9 4.5 1.8 7-2.4 2.8-8.6 7.4-8.6 7.4z"/></svg>
+            </span>
+            <span class="nav-label">Donate</span>
+          </button>
+          <button class="nav-item nav-item-plain" data-view="about">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </span>
+            <span class="nav-label">About</span>
+          </button>
+          <button class="nav-item nav-item-plain" data-view="settings">
+            <span class="nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M19.14 12.94a7.3 7.3 0 0 0 .05-.94 7.3 7.3 0 0 0-.05-.94l2.03-1.58-1.92-3.32-2.39.96a7.16 7.16 0 0 0-1.63-.94L15 2h-3l-.23 3.18c-.57.23-1.12.54-1.63.94l-2.39-.96-1.92 3.32 2.03 1.58c-.03.31-.05.63-.05.94s.02.63.05.94l-2.03 1.58 1.92 3.32 2.39-.96c.51.4 1.06.71 1.63.94L12 22h3l.23-3.18c.57-.23 1.12-.54 1.63-.94l2.39.96 1.92-3.32-2.03-1.58zM13.5 12a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+            </span>
+            <span class="nav-label">Settings</span>
+          </button>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <section class="downloader-view view is-active" data-view="downloader">
+        <section class="hero hero-centered">
+          <form class="input-card input-card-min" id="download-form">
+            <pre class="logo-ascii" aria-hidden="true">                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                                                           
+                                    #####                                  
+                                 ##########                                
+                                ####    ####                               
+                               ###  ##### ###                              
+                               ## ##  # --  #                              
+                               ## #         ##                             
+                      #######  ##    ## #   # ###########                  
+                   ############ #      #     ####   #######                
+                 -#####      ##### ###+# #####    ####  ###                
+                 ##   #####        #     #   ## #        ##                
+                 ##       -+#  ### ###### #              ##                
+                 ###      #   #   ## # ##.  #   ##     ###                 
+                  ###             # ### ##  ##      #####                  
+                   #####    #  ## ##    ##   ### ######                    
+                    #######- ## #  ######   #.  #                          
+                        -  ###  ##        ##     ####                      
+                         ###       # # ###          ##                     
+                         ##    #  #        # #      ###                    
+                         ## #    #    ###            ##                    
+                         ## #        ## ##           ##                    
+                         ##        ###   #####.     ###                    
+                          ############    ############                     
+                           ########            #####                       
+                                                                           
+                                   
+                                                                           
+              ##########################   ##################              
+              ##         ##    # # # ###   #    # # ## ## # #
+
+  _     _ _      
+ | |   (_) |     
+ | |    _| | __ _
+  | |   | | |/ _` |
+  | |___| | | (_| |
+  |_____|_|_|\__,_|
+</pre>
+            <div class="input-wrap">
+              <input type="url" id="url-input" class="url-input" placeholder="Paste YouTube link" autocomplete="off" required />
+              <button type="submit" class="primary-btn input-download" id="preview-btn">Download</button>
+            </div>
+
+            <div class="status" id="status-text">Paste a link and hit download.</div>
+          </form>
+        </section>
+
+        <button class="history-fab" type="button" data-view="history" aria-label="Open history">
+          <svg viewBox="0 0 24 24"><path d="M12 5a7 7 0 1 1-6.32 4H3l3.5-3.5L10 9H7.68A5 5 0 1 0 12 7v2l4-3-4-3v2z"/></svg>
+          <span>History</span>
+        </button>
+
+        <section class="preview" id="preview-section" aria-live="polite">
+          <div class="preview-card is-hidden" id="preview-card">
+            <div class="thumb" id="thumb"></div>
+            <div class="preview-info">
+              <div class="preview-header">
+                <div>
+                  <div class="preview-title" id="preview-title">Title</div>
+                  <div class="preview-meta" id="preview-meta">Account</div>
+                </div>
+              </div>
+              <div class="preview-controls">
+                <div class="toggle" role="group" aria-label="Format">
+                  <button type="button" class="toggle-btn is-active" data-format="mp4">MP4</button>
+                  <button type="button" class="toggle-btn" data-format="mp3">MP3</button>
+                </div>
+                <div class="preview-actions">
+                  <button class="secondary-btn" id="direct-btn">Download</button>
+                  <a class="ghost-btn" id="source-link" href="#" target="_blank" rel="noopener">Open source</a>
+                </div>
+              </div>
+              <div class="note" id="format-note"></div>
+            </div>
+          </div>
+        </section>
+        <div class="legal-bar">
+          By continuing you agree to the <button type="button" class="legal-link" data-view="about" data-about="terms">terms and ethics of use</button>.
+        </div>
+      </section>
+
+      <section class="history view" id="history-section" data-view="history">
+        <button class="back-button" type="button" data-view="downloader" aria-label="Back to downloader">
+          <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+          Back
+        </button>
+        <div class="history-actions">
+          <button class="secondary-btn" type="button" id="clear-history">Clear history</button>
+        </div>
+        <div class="history-list" id="history-list"></div>
+      </section>
+
+      <section class="about view" id="about-section" data-view="about">
+        <div class="about-card">
+          <h2>About Lila</h2>
+          <div class="about-menu">
+            <button type="button" class="about-tab is-active" data-about="what">
+              <span class="about-icon is-purple" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4zm0 4l8 4 8-4v6l-8 4-8-4v-6z"/></svg>
+              </span>
+              What is Lila?
+            </button>
+            <button type="button" class="about-tab" data-about="terms">
+              <span class="about-icon is-amber" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm7 1.5V9h4.5"/></svg>
+              </span>
+              Terms of Service
+            </button>
+            <button type="button" class="about-tab" data-about="privacy">
+              <span class="about-icon is-mint" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4zm0 5a3 3 0 0 0-3 3v2a3 3 0 1 0 6 0v-2a3 3 0 0 0-3-3z"/></svg>
+              </span>
+              Privacy
+            </button>
+            <button type="button" class="about-tab" data-about="faq">
+              <span class="about-icon is-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 5h16v10H7l-3 4V5zm8 2a3 3 0 0 0-3 3h2a1 1 0 1 1 1 1h-1v2h2v-1.1A3 3 0 0 0 12 7zm-1 7h2v2h-2z"/></svg>
+              </span>
+              FAQ
+            </button>
+          </div>
+          <div class="about-section is-active" data-about="what">
+            <p><strong>Got a link? We will do the rest.</strong></p>
+            <p>Lila is a fast, browser-first YouTube downloader that turns one URL into a clean MP4 or MP3 download.</p>
+            <p><strong>How it works:</strong></p>
+            <ul class="about-list">
+              <li>Paste the link</li>
+              <li>Pick MP4 or MP3</li>
+              <li>Download straight to your device</li>
+            </ul>
+            <p>We stream directly to your browser, so the file goes to you - not into some server folder. Perfect for offline viewing, audio-only saves and keeping clips for research or editing.</p>
+          </div>
+          <div class="about-section" data-about="terms">
+            <p><strong>General Terms</strong></p>
+            <p>These terms apply to anyone using the official Lila website.</p>
+            <p><strong>Using Lila</strong></p>
+            <p>By using Lila, you agree that you are responsible for how you use the tool and what you do with any files you download including saving, sharing, publishing.</p>
+            <p>Download/convert only content you own, have permission to use, or are legally allowed to use.</p>
+            <p>Please do not break any licenses or platform rules.</p>
+            <p>If it is someone else's work, give credit to the original creator.</p>
+            <p>Please be mindfull when using content created by others.</p>
+            <p><strong>Files & storage</strong></p>
+            <p>We do not store your downloaded files on our servers. Downloads are delivered to your browser and saved on your device.</p>
+          </div>
+          <div class="about-section" data-about="privacy">
+            <p>We keep things simple: no accounts, no download history, and no stored files on our servers.</p>
+            <p>Your downloads are handled by your browser and saved directly to your device.</p>
+          </div>
+          <div class="about-section custom-scroll" data-about="faq">
+            <p><strong>What is Lila?</strong></p>
+            <p>Lila is a fast, browser-first tool that turns a single link into an MP4 (video) or MP3 (audio) download.</p>
+            <p><strong>How does it work?</strong></p>
+            <p>Paste a link, preview, pick MP4 or MP3, and download. Your browser saves the file to your device.</p>
+            <p><strong>Do you store my downloads or my links?</strong></p>
+            <p>No, Lila does not store your files or keep a download history. Any history you see is on your own device/browser.</p>
+            <p><strong>Do I need an account?</strong></p>
+            <p>Nope, no sign-up needed.</p>
+            <p><strong>Is it free?</strong></p>
+            <p>Yes, Lila is free to use.</p>
+            <p><strong>Which formats do you support?</strong></p>
+            <p>MP4 (video) and MP3 (audio).</p>
+            <p><strong>Can I choose quality?</strong></p>
+            <p>Yes, choose your preferred quality in Settings before downloading.</p>
+            <p><strong>Why does a download sometimes fail?</strong></p>
+            <p>Common reasons:</p>
+            <ul class="about-list">
+              <li>The video is private, age-restricted, region-locked, or removed</li>
+              <li>The platform changed something</li>
+              <li>A VPN/adblock/network rule is interfering (try disabling VPN or a different link and retry)</li>
+            </ul>
+            <p><strong>Is it okay to use?</strong></p>
+            <p>Please use Lila responsibly: only download content you have the rights to use, and credit creators when appropriate. If you are unsure about permissions, do not download it.</p>
+            <p>You are responsible for using Lila legally. Personal use is okay, commercial without permission is not.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="news view" id="news-section" data-view="news">
+        <button class="news-nav is-left" type="button" aria-label="Previous update">
+          <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <div class="news-card">
+          <h2>News & Updates</h2>
+          <p class="news-sub">Latest changes to Lila and upcoming improvements.</p>
+          <div class="news-pages custom-scroll">
+            <article class="news-item is-active" data-news-page="0">
+              <div class="news-date">Today</div>
+              <h3>UI refresh: centered downloader + preview layout</h3>
+              <p>Streamlined the downloader flow, added a floating history button, and simplified the sidebar to icon-only.</p>
+              <ul class="news-bullets">
+                <li>Inline MP4/MP3 controls in the preview card.</li>
+                <li>Floating History shortcut from the downloader.</li>
+                <li>Cleaner layout with minimal sidebar icons.</li>
+              </ul>
+            </article>
+            <article class="news-item" data-news-page="1">
+              <div class="news-date">Yesterday</div>
+              <h3>Preview improvements</h3>
+              <p>Better thumbnails, safer filenames, and quick access to source links.</p>
+              <ul class="news-bullets">
+                <li>Filename sanitizing to avoid emoji crashes.</li>
+                <li>Preview spacing tightened for clarity.</li>
+                <li>Improved layout for smaller screens.</li>
+              </ul>
+            </article>
+            <article class="news-item" data-news-page="2">
+              <div class="news-date">Last week</div>
+              <h3>About, Terms, and legal clarity</h3>
+              <p>New About sections, Terms page, and privacy notes for transparency.</p>
+              <ul class="news-bullets">
+                <li>Tabbed About content for SEO clarity.</li>
+                <li>Bottom legal link with terms page.</li>
+                <li>Privacy notes on streaming behavior.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="news-pagination" id="news-pagination">1 / 3</div>
+        </div>
+        <button class="news-nav is-right" type="button" aria-label="Next update">
+          <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </section>
+
+      <section class="donate view custom-scroll" id="donate-section" data-view="donate">
+        <div class="donate-card">
+          <h2>Support Lila</h2>
+          <p class="donate-sub">If this tool helps you, a small donation keeps the servers running.</p>
+          
+          <div class="donate-media" aria-hidden="true">
+            <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="" />
+          </div>
+          <div class="donate-options">
+            <a class="secondary-btn donate-option" href="#" target="_blank" rel="noopener" data-amount="5" data-stripe="">Lavender Latte $5</a>
+            <a class="secondary-btn donate-option" href="#" target="_blank" rel="noopener" data-amount="10" data-stripe="">Violet Boost $10</a>
+            <a class="secondary-btn donate-option" href="#" target="_blank" rel="noopener" data-amount="25" data-stripe="">Orchid Patron $25</a>
+            <a class="secondary-btn donate-option" href="#" target="_blank" rel="noopener" data-amount="50" data-stripe="">Amethyst Shine $50</a>
+          </div>
+          <div class="donate-custom">
+            <span>Custom</span>
+            <input type="number" min="1" step="1" placeholder="Amount" id="donate-custom-amount" />
+            <span class="donate-currency">USD</span>
+              <button class="secondary-btn donate-go" type="button" id="donate-custom-go" data-stripe-custom="">Donate</button>
+          </div>
+          <p class="donate-reason">We are grateful for every little boost. Lila stays ad-free and is built to make YouTube downloads quick and convenient. Your support keeps it fast, clean, and accessible for everyone. 💜</p>
+          <div class="donate-note">Donation link coming soon. Add your Stripe link later.</div>
+          <div class="donate-note">Thank you for keeping Lila ad-free and fast. 💜</div>
+        </div>
+      </section>
+
+      <section class="settings view" id="settings-section" data-view="settings">
+        <div class="settings-card">
+          <h2>Settings</h2>
+          <div class="settings-item">
+            <div>
+              <div class="settings-title">Default format</div>
+              <div class="settings-desc">Choose the format used when you open the downloader.</div>
+            </div>
+            <div class="toggle" role="group" aria-label="Default format">
+              <button type="button" class="toggle-btn is-active" data-default-format="mp4">MP4</button>
+              <button type="button" class="toggle-btn" data-default-format="mp3">MP3</button>
+            </div>
+          </div>
+          <div class="settings-item">
+            <div>
+              <div class="settings-title">Quality</div>
+              <div class="settings-desc">Limit MP4 downloads to a max resolution.</div>
+            </div>
+            <div class="toggle" role="group" aria-label="Quality">
+              <button type="button" class="toggle-btn is-active" data-quality="best">Best</button>
+              <button type="button" class="toggle-btn" data-quality="1080">1080p</button>
+              <button type="button" class="toggle-btn" data-quality="720">720p</button>
+            </div>
+          </div>
+          <div class="settings-item">
+            <div>
+              <div class="settings-title">Safe filenames</div>
+              <div class="settings-desc">Remove emojis and special characters from downloaded filenames.</div>
+            </div>
+            <button class="secondary-btn" type="button" id="safe-filenames" aria-pressed="true">Enabled</button>
+          </div>
+          <div class="settings-item">
+            <div>
+              <div class="settings-title">History mode</div>
+              <div class="settings-desc">Auto-clear history after each download.</div>
+            </div>
+            <button class="secondary-btn" type="button" id="history-mode" aria-pressed="false">Keep history</button>
+          </div>
+          <div class="settings-item">
+            <div>
+              <div class="settings-title">Light mode</div>
+              <div class="settings-desc">Switch to a bright theme.</div>
+            </div>
+            <button class="secondary-btn" type="button" id="light-mode" aria-pressed="false">Disabled</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="history-bar">Use the downloader to see your history.</div>
+
+    </main>
+  </div>
+
+  <div class="toast-stack" id="toast-stack" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

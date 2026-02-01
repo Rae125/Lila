@@ -1,0 +1,13 @@
+{
+  "name": "lilaloader",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Link-based media downloader UI with a lightweight API wrapper around yt-dlp.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
