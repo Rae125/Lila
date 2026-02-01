@@ -198,8 +198,8 @@ function streamYtDlpDownload(url, format, title, res, quality) {
 
   child.on('close', (code) => {
     if (code !== 0) {
-      if (!res.headersSent) {
       console.error('yt-dlp download failed:', stderr.trim());
+      if (!res.headersSent) {
         res.status(500).json({ ok: false, error: 'yt-dlp failed.', details: stderr.trim() });
       } else {
         res.end();
@@ -240,9 +240,9 @@ async function handlePreview(req, res) {
       }
     });
   } catch (err) {
+    console.error('yt-dlp preview failed:', err.details || err.message || err);
     res.status(500).json({
       ok: false,
-    console.error('yt-dlp preview failed:', err.details || err.message || err);
       error: 'yt-dlp failed to read this URL.',
       details: (err.details || err.message || '').toString().trim()
     });
