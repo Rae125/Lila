@@ -24,7 +24,12 @@ function getCookiesArgs() {
 
 function runYtDlp(args) {
   const cookies = getCookiesArgs();
-  const finalArgs = cookies.args.length ? [...cookies.args, ...args] : args;
+  const baseArgs = [
+    '--force-ipv4',
+    '--extractor-args',
+    'youtube:player_client=android,web'
+  ];
+  const finalArgs = cookies.args.length ? [...baseArgs, ...cookies.args, ...args] : [...baseArgs, ...args];
   return new Promise((resolve, reject) => {
     execFile('yt-dlp', finalArgs, { maxBuffer: 10 * 1024 * 1024 }, (err, stdout, stderr) => {
       if (err) {
@@ -121,6 +126,9 @@ function streamYtDlpDownload(url, format, title, res, quality) {
   res.setHeader('Content-Type', format === 'mp3' ? 'audio/mpeg' : 'video/mp4');
 
   const args = [
+    '--force-ipv4',
+    '--extractor-args',
+    'youtube:player_client=android,web',
     '--no-playlist',
     '--no-cache-dir',
     '--no-part',
@@ -191,6 +199,7 @@ function streamYtDlpDownload(url, format, title, res, quality) {
   child.on('close', (code) => {
     if (code !== 0) {
       if (!res.headersSent) {
+      console.error('yt-dlp download failed:', stderr.trim());
         res.status(500).json({ ok: false, error: 'yt-dlp failed.', details: stderr.trim() });
       } else {
         res.end();
@@ -233,6 +242,7 @@ async function handlePreview(req, res) {
   } catch (err) {
     res.status(500).json({
       ok: false,
+    console.error('yt-dlp preview failed:', err.details || err.message || err);
       error: 'yt-dlp failed to read this URL.',
       details: (err.details || err.message || '').toString().trim()
     });
